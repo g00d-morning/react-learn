@@ -1,0 +1,20 @@
+{
+  "name": "react-learn",
+  "version": "1.0.0",
+  "description": "学习react  \r ***光看没用  还是得动手做***    \r let't go",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/g00d-morning/react-learn.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/g00d-morning/react-learn/issues"
+  },
+  "homepage": "https://github.com/g00d-morning/react-learn#readme"
+}
