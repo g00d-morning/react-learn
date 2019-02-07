@@ -24,6 +24,7 @@ export default class Comment extends Component {
     this.setState({
       timeString: duration > 60 ? `${Math.round(duration / 60)}分钟前` : `${Math.round(duration, 1)}秒前`
     })
+    //Math.round  五舍六入
   }
   _getProcessedContent (content) {
     return content            //预防XSS攻击

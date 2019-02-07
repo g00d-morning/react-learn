@@ -45,7 +45,7 @@ class CommentInputContainer extends Component {
 
   render () {
     return (
-      <CommentInput
+      <CommentInput           //这里面写的三个username\onUserNameInputBlur\onSubmit会当做props传给CommentInput组件
         username={this.state.username}
         onUserNameInputBlur={this._saveUsername.bind(this)}
         onSubmit={this.handleSubmitComment.bind(this)} />
@@ -53,19 +53,22 @@ class CommentInputContainer extends Component {
   }
 }
 
+//mapStateToProps 这个会合并到props
 const mapStateToProps = (state) => {
   return {
     comments: state.comments
   }
 }
-
+//mapDispatchToProps 这个也会合并到props
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSubmit: (comment) => {
+    onSubmit: (comment) => {           //onSubmit就是进行分发action操作
       dispatch(addComment(comment))
     }
   }
 }
+
+// 上面两个都会添加到这个容器组件的props
 
 export default connect(
   mapStateToProps,
