@@ -20,6 +20,8 @@ body {
   border: 1px solid #f1f1f1;
   padding: 20px;
   margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 6px 6px #d3d3d3;
 }
 
 .comment-field {
@@ -78,6 +80,7 @@ body {
   background-color: #fff;
   border: 1px solid #f1f1f1;
   padding: 20px;
+  margin-top: 20px;
 }
 
 /* 评论组件样式 */
@@ -94,9 +97,10 @@ body {
   flex-shrink: 0;
 }
 
-.comment-username {
+.comment-user {
   color: #00a3cf;
   font-style: italic;
+  margin-right: 10px;
 }
 
 .comment-createdtime {

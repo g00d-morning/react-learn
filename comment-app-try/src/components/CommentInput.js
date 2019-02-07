@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component} from 'react'
 import PropTypes from 'prop-types'
+
 
 export default class CommentInput extends Component {
   static propTypes = {
@@ -15,7 +16,7 @@ export default class CommentInput extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      username: props.username, // 从 props 上取 username 字段
+      username: props.username,
       content: ''
     }
   }
@@ -53,30 +54,33 @@ export default class CommentInput extends Component {
     this.setState({ content: '' })
   }
 
-  render() {
+  render () {
     return (
-      <div className="comment-input">
-        <div className="comment-filed">
-          <label htmlFor="username" className="comment-filed-label">用户名:</label>
-          <input id="username" value={this.state.username} type="text" 
-          onBlur={this.handleUsernameBlur.bind(this)}
-          onChange={this.handleUsernameChange.bind(this)} />
+      <div className='comment-input'>
+        <div className='comment-field'>
+          <span className='comment-field-name'>用户名：</span>
+          <div className='comment-field-input'>
+            <input
+              value={this.state.username}
+              onBlur={this.handleUsernameBlur.bind(this)}
+              onChange={this.handleUsernameChange.bind(this)} />
+          </div>
         </div>
-
-        <div className="comment-filed">
-          <label htmlFor="content" className="comment-filed-label">评论内容:</label>
-          <textarea id="content" value={this.state.content}  
-          type="text" onChange={this.handleConetntChange.bind(this)} 
-          ref={(textarea) => this.textarea = textarea }/>
+        <div className='comment-field'>
+          <span className='comment-field-name'>评论内容：</span>
+          <div className='comment-field-input'>
+            <textarea
+              ref={(textarea) => this.textarea = textarea}
+              value={this.state.content}
+              onChange={this.handleContentChange.bind(this)} />
+          </div>
         </div>
-
-        <div className="comment-field-button">
+        <div className='comment-field-button'>
           <button
             onClick={this.handleSubmit.bind(this)}>
             发布
           </button>
         </div>
-        
       </div>
     )
   }
