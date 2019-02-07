@@ -7,23 +7,23 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
 const themeReducer = (state, action) => {
-    if(!state) return {
+    if (!state) return {
         themeColor: 'red'
     }
     switch (action.type) {
-        case 'CHANGE_COLOR': 
+        case 'CHANGE_COLOR':
             return {
                 ...state,
                 themeColor: action.themeColor
             }
-        default: 
+        default:
             return state
     }
-} 
+}
 const store = createStore(themeReducer)
 
 class Index extends Component {
-    render () {
+    render() {
         return (
             <div>
                 <Header />
@@ -33,5 +33,9 @@ class Index extends Component {
     }
 }
 
-ReactDOM.render(<Index />, document.getElementById('root'));
+ReactDOM.render(
+    <Provider >
+        <Index store={store}/>
+    </Provider>
+    , document.getElementById('root'));
 
