@@ -1,52 +1,52 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-
 export default class CommentInput extends Component {
   static propTypes = {
-    onSubmit: PropTypes.func
+    username: PropTypes.any,
+    onSubmit: PropTypes.func,
+    onUserNameInputBlur: PropTypes.func
   }
-  constructor () {
-    super()
+
+  static defaultProps = {
+    username: ''
+  }
+
+  constructor (props) {
+    super(props)
     this.state = {
-      username:　'',
-      content: '',
+      username: props.username, // 从 props 上取 username 字段
+      content: ''
     }
-  } 
-  componentWillMount () {
-    this._loadUsername()
   }
+
   componentDidMount () {
     this.textarea.focus()
   }
-  _loadUsername () {
-    const username = localStorage.getItem('username')
-    if(username) {
-      this.setState({username})
+
+  handleUsernameBlur (event) {
+    if (this.props.onUserNameInputBlur) {
+      this.props.onUserNameInputBlur(event.target.value)
     }
   }
-  _saveUsername (username) {
-    localStorage.setItem('username', username)
-  }
-  handleUsernameBlur (event) {    //监听用户名输入框失去焦点的事件
-    this._saveUsername(event.target.value)
-  }
+
   handleUsernameChange (event) {
     this.setState({
       username: event.target.value
     })
   }
-  handleConetntChange (event) {
+
+  handleContentChange (event) {
     this.setState({
       content: event.target.value
     })
   }
-  handleSubmit() {
-    if (this.props.onSubmit) {     //方法会判断 props 中是否传入了 onSubmit 属性
-      const { username, content } = this.state
+
+  handleSubmit () {
+    if (this.props.onSubmit) {
       this.props.onSubmit({
-        username,
-        content,
+        username: this.state.username,
+        content: this.state.content,
         createdTime: +new Date()
       })
     }
