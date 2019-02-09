@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/g00d-morning/react-learn/issues"
   },
-  "homepage": "https://github.com/g00d-morning/react-learn#readme"
+  "homepage": "https://github.com/g00d-morning/react-learn#readme",
+  "dependencies": {
+    "antd": "^3.13.2"
+  }
 }
