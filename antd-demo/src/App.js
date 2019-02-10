@@ -17,7 +17,7 @@ class App extends Component {
         <Button type="primary" >antd按钮</Button>
         <Carousel autoplay>
         {swiperList.map((item,index) => {
-          return <div><img src={item} alt={index} style={{background: "cover",height: 160+"px"}}/></div>
+          return <div><img src={item} alt={index} style={{background: "cover",height: '160px', width: '100%'}}/></div>
         })}
           {/* <div><h3>hellow</h3></div>
           <div><h3>good</h3></div>
