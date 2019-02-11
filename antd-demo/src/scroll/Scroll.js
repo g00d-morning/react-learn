@@ -7,6 +7,7 @@ class Scroll extends React.Component {
   constructor(props) {
     super(props);
     this.scrollViewRef = React.createRef();
+    this.props.onTestRef(this);
   }
   componentDidUpdate() {
     // 组件更新后，如果实例化了better-scroll并且需要刷新就调用refresh()函数
@@ -45,12 +46,13 @@ class Scroll extends React.Component {
       this.bScroll.refresh();
     }
   }
-  scrollTo() {
+  scrollTo(scrollY) {
     if(this.bScroll) {
       console.log('调用了scrollTo');
-      // this.bScroll.scrollTo(0, -200, 300, 'swipe')
-      console.log(this.props.children.props.children[11])
-      this.bScroll.scrollToElement(this.props.children[11],300,0,0,'swipe')
+      console.log(scrollY)
+      this.bScroll.scrollTo(0, -scrollY, 300, 'swipe')
+      // console.log(this.props.children.props.children[11])
+      // this.bScroll.scrollToElement(this.props.children[11],300,0,0,'swipe')
     }
   }
   render() {
@@ -69,6 +71,8 @@ Scroll.defaultProps = {
   refresh: false,
   onScroll: null,
   onClick: null,
+  goToY: null,
+  onTestRef: null,
 };
 
 Scroll.propTypes = {
@@ -79,6 +83,8 @@ Scroll.propTypes = {
   refresh: PropTypes.bool,
   onScroll: PropTypes.func,
   onClick: PropTypes.object,
+  goToY: PropTypes.number,
+  onTestRef: PropTypes.func
 };
 
 export default Scroll
