@@ -27,7 +27,7 @@ class Menu extends React.Component {
         // console.log(event.currentTarget);
         // console.log(event.target);
         // console.log(this.ref.getBoundingClientRect())
-        console.log(this.refIndex.currentTarget)
+        console.log(this.testRef.current.childNodes[event.currentTarget.dataset.ikey].getBoundingClientRect().top)
         console.log('----------')
         console.log(event.currentTarget.dataset.ikey)
     }
@@ -38,12 +38,13 @@ class Menu extends React.Component {
                 <Scroll refresh={this.state.refreshScroll}
                 onClick={{}}
                     onScroll={() => { console.log('调用滚动函数及forceCheck'); forceCheck(); }}
+                    
                      >
-                    <div className={`in-wrapper`}>
+                    <div className={`in-wrapper`} ref={this.testRef}>
                         {
                             leftList.map((item, index) => {
                                 return (
-                                    <div id={`ref-${index}`} className={`in-in-wrapper `} key={index}
+                                    <div className={`in-in-wrapper `} key={index}
                                     data-ikey={index}
                                     onClick={(e) => {this.getDetail(e)}}
                                     >
