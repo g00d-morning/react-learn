@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Button from 'antd/lib/button'
 import { Carousel } from 'antd'
 import "./App.css"
+import Menu from './Menu/Menu'
 
 const swiperList = ['http://resm.4008823823.com.cn/kfcmwos/img/Banner_1_cb8d8d64ca2443b8a9739aea05886268.jpg',
   'http://resm.4008823823.com.cn/kfcmwos/img/Banner_1_26994272adab4819825129a63552180f.jpg',
@@ -24,6 +25,7 @@ class App extends Component {
           <div><h3>hello antd!</h3></div>
           <div><h3>hey</h3></div> */}
         </Carousel>, mountNode
+        <Menu />
       </div>
     );
   }
