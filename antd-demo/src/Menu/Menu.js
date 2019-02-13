@@ -53,7 +53,6 @@ class Menu extends React.Component {
                 <Scroll refresh={this.state.refreshScroll}
                 onTestRef={(el) => this.childRef = el}
                     onScroll={() => { console.log('调用滚动函数及forceCheck'); forceCheck(); }}
-                    
                      >
                     <div className={`in-wrapper`} ref={this.testRef}>
                         {

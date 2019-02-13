@@ -31,7 +31,7 @@ class Scroll extends React.Component {
         });
       }
       if(this.props.onClick) {
-          this.scrollTo();
+          // this.scrollTo();
           // this.bScroll.scrollTo(0,-200,300,'swipe')
       }
 
